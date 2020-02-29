@@ -18,7 +18,7 @@ import org.springframework.web.util.UriTemplate;
 import java.net.URI;
 
 @Service
-public class WeatherService{
+public class WeatherService {
     private static final String WEATHER_URL =
             "http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={key}";
 
@@ -58,16 +58,16 @@ public class WeatherService{
     }
 
     private boolean validParameters(String city) {
-        return city !=null && !"".equals(city) && apiKey !=null && !"".equals(apiKey) && apiUrl!=null && !"".equals(apiUrl);
+        return city != null && !"".equals(city) && apiKey != null && !"".equals(apiKey) && apiUrl != null && !"".equals(apiUrl);
     }
 
-    private <T> T invoke(URI url, Class<T> responseType){
+    private <T> T invoke(URI url, Class<T> responseType) {
         T weather = null;
         try {
             RequestEntity<?> request = RequestEntity.get(url).accept(MediaType.APPLICATION_JSON).build();
             ResponseEntity<T> exchange = this.restTemplate.exchange(request, responseType);
             weather = exchange.getBody();
-        } catch(Exception e){
+        } catch (Exception e) {
             logger.error("An error occurred while calling openweathermap.org API endpoint:  " + e.getMessage());
         }
         return weather;

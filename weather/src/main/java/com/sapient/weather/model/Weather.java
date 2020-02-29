@@ -125,8 +125,8 @@ public class Weather {
     @JsonProperty("sys")
     public void setSys(Map<String, Object> sys) {
         setCountryCode((String) sys.get("country"));
-        setSunrise((int)sys.get("sunrise"));
-        setSunset((int)sys.get("sunset"));
+        setSunrise((int) sys.get("sunrise"));
+        setSunset((int) sys.get("sunset"));
 
     }
 }
