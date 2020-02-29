@@ -4,6 +4,7 @@ import com.sapient.weather.controller.WeatherController;
 import com.sapient.weather.model.WeatherEntry;
 import com.sapient.weather.model.WeatherForecast;
 import com.sapient.weather.service.WeatherService;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ class WeatherApplicationTests {
 
 	@Autowired
 	private MockMvc mvc;
-
+	
 	@Test
 	public void weatherForecast() throws Exception {
 		WeatherForecast forecast = new WeatherForecast();
